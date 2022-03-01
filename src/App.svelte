@@ -71,7 +71,7 @@
     }
   }
   function addOriginWord() {
-    console.log("test");    
+    console.log("test");
     if (originWords.includes("needtranslate")) {
       lightTip.error("已存在待翻译键名");
       return;
@@ -86,8 +86,10 @@
 <main>
   <nav>
     <button class="ui-button" on:click={getFile}>导入文件</button>
-    <button class="ui-button" on:click={exportFile}>导出文件</button>
-    <button class="ui-button" on:click={addOriginWord}>添加新行</button>
+    {#if hasProject}
+      <button class="ui-button" on:click={exportFile}>导出文件</button>
+      <button class="ui-button" on:click={addOriginWord}>添加新行</button>
+    {/if}
   </nav>
   {#if hasProject}
     <table class="ui-table">
